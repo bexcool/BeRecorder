@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "BeRecorderWinUI3 (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "BeRecorderWinUI3 (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

@@ -1,0 +1,55 @@
+﻿<Page
+    x:Class="BeRecorderWinUI3.Pages.Settings.VideoPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BeRecorderWinUI3.UserControls.Settings"
+    xmlns:aw="using:BeRecorderWinUI3.AppWindows"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <!--
+    <Page.Resources>
+        <ResourceDictionary Source="/ResourceDictionaries/RightAlignedToggleSwitchStyle.xaml" />
+        <ToggleSwitch Style="{StaticResource RightAlignedToggleSwitchStyle}"/>
+    </Page.Resources>
+    -->
+    <StackPanel Spacing="8" Margin="15">
+        <local:SettingsBlockControl Title="Framerate" Description="Amount of frames per second." HorizontalAlignment="Stretch">
+            <local:SettingsBlockControl.Icon>
+                <FontIcon Glyph="&#xE81E;" />
+            </local:SettingsBlockControl.Icon>
+            <NumberBox Text="{x:Bind aw:SettingsWindow.TempSettings.Video.FrameRate, Mode=TwoWay}" LargeChange="10" SmallChange="5" SpinButtonPlacementMode="Inline" Minimum="1" Maximum="120" Width="200"/>
+            <local:SettingsBlockControl.ExpandableContent>
+                <local:SettingsBlockControl Title="Fixed framerate" HorizontalAlignment="Stretch">
+                    <local:SettingsBlockControl.Icon>
+                        <FontIcon Glyph="&#xE72E;" />
+                    </local:SettingsBlockControl.Icon>
+                    <ToggleSwitch IsOn="{x:Bind aw:SettingsWindow.TempSettings.Video.FixedFrameRate, Mode=TwoWay}"/>
+                </local:SettingsBlockControl>
+            </local:SettingsBlockControl.ExpandableContent>
+        </local:SettingsBlockControl>
+        <local:SettingsBlockControl Title="Resolution" Description="Base and output scaled resolution." HorizontalAlignment="Stretch">
+            <local:SettingsBlockControl.Icon>
+                <FontIcon Glyph="&#xE7F4;" />
+            </local:SettingsBlockControl.Icon>
+            <local:SettingsBlockControl.ExpandableContent>
+                <StackPanel>
+                    <local:SettingsBlockControl Title="Base resolution" Description="Recorded resolution." HorizontalAlignment="Stretch">
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <NumberBox Value="{x:Bind aw:SettingsWindow.TempSettings.Video.BaseResolution.Width, Mode=TwoWay}" LargeChange="10" SmallChange="5" SpinButtonPlacementMode="Hidden" Minimum="1" Width="100" ValidationMode="InvalidInputOverwritten"/>
+                            <TextBlock Text="X" VerticalAlignment="Center"/>
+                            <NumberBox Value="{x:Bind aw:SettingsWindow.TempSettings.Video.BaseResolution.Height, Mode=TwoWay}" LargeChange="10" SmallChange="5" SpinButtonPlacementMode="Hidden" Minimum="1" Width="100" ValidationMode="InvalidInputOverwritten"/>
+                        </StackPanel>
+                    </local:SettingsBlockControl>
+                    <local:SettingsBlockControl Title="Output scaled resolution" Description="Output video resolution." HorizontalAlignment="Stretch">
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <NumberBox Value="{x:Bind aw:SettingsWindow.TempSettings.Video.OutputResolution.Width, Mode=TwoWay}" LargeChange="10" SmallChange="5" SpinButtonPlacementMode="Hidden" Minimum="1" Width="100" ValidationMode="InvalidInputOverwritten"/>
+                            <TextBlock Text="X" VerticalAlignment="Center"/>
+                            <NumberBox Value="{x:Bind aw:SettingsWindow.TempSettings.Video.OutputResolution.Height, Mode=TwoWay}" LargeChange="10" SmallChange="5" SpinButtonPlacementMode="Hidden" Minimum="1" Width="100" ValidationMode="InvalidInputOverwritten"/>
+                        </StackPanel>
+                    </local:SettingsBlockControl>
+                </StackPanel>
+            </local:SettingsBlockControl.ExpandableContent>
+        </local:SettingsBlockControl>
+    </StackPanel>
+</Page>

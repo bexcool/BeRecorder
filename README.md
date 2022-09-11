@@ -1,0 +1,2 @@
+# BeRecorder
+ Lightweight screen recorder.

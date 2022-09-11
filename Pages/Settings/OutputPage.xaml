@@ -1,0 +1,41 @@
+﻿<Page
+    x:Class="BeRecorderWinUI3.Pages.Settings.OutputPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BeRecorderWinUI3.UserControls.Settings"
+    xmlns:aw="using:BeRecorderWinUI3.AppWindows"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <StackPanel Spacing="8" Margin="15">
+        <local:SettingsBlockControl Title="Output path" Description="{x:Bind aw:SettingsWindow.TempSettings.Output.OutputPath, Mode=OneWay}" HorizontalAlignment="Stretch">
+            <local:SettingsBlockControl.Icon>
+                <FontIcon Glyph="&#xED25;" />
+            </local:SettingsBlockControl.Icon>
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <Button Content="Select folder" Click="SelectOutputPathButton_Click"/>
+            </StackPanel>
+        </local:SettingsBlockControl>
+        <local:SettingsBlockControl Title="Encoder" HorizontalAlignment="Stretch">
+            <local:SettingsBlockControl.Icon>
+                <FontIcon Glyph="&#xE9F5;" />
+            </local:SettingsBlockControl.Icon>
+            <ComboBox Width="200" ItemsSource="{x:Bind Encoders}" SelectedIndex="{x:Bind aw:SettingsWindow.TempSettings.Output.EncoderIndex, Mode=TwoWay}"/>
+            <local:SettingsBlockControl.ExpandableContent>
+                <local:SettingsBlockControl Title="Bitrate control mode" HorizontalAlignment="Stretch">
+                    <local:SettingsBlockControl.Icon>
+                        <FontIcon Glyph="&#xE8B9;"/>
+                    </local:SettingsBlockControl.Icon>
+                    <ComboBox ItemsSource="{x:Bind EncoderBitrateModes}" SelectedIndex="{x:Bind aw:SettingsWindow.TempSettings.Output.BitrateControlModeIndex, Mode=TwoWay}"/>
+                </local:SettingsBlockControl>
+            </local:SettingsBlockControl.ExpandableContent>
+        </local:SettingsBlockControl>
+        <local:SettingsBlockControl Title="Bitrate (kb/s)" Description="How much data will be recorded per second (Recommended is 8000 kb/s)." HorizontalAlignment="Stretch">
+            <local:SettingsBlockControl.Icon>
+                <FontIcon Glyph="&#xE7FA;" />
+            </local:SettingsBlockControl.Icon>
+            <NumberBox Text="{x:Bind aw:SettingsWindow.TempSettings.Output.Bitrate, Mode=TwoWay}" LargeChange="1000" SmallChange="500" SpinButtonPlacementMode="Inline" Minimum="1" Maximum="500000" Width="200"/>
+        </local:SettingsBlockControl>
+    </StackPanel>
+</Page>

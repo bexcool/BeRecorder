@@ -1,0 +1,19 @@
+﻿<Page
+    x:Class="BeRecorderWinUI3.Pages.Settings.SoundPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BeRecorderWinUI3.UserControls.Settings"
+    xmlns:aw="using:BeRecorderWinUI3.AppWindows"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <StackPanel Spacing="8" Margin="15">
+        <local:SettingsBlockControl Title="Input device" Icon="Microphone" HorizontalAlignment="Stretch">
+            <ComboBox Width="200" SelectedIndex="{x:Bind aw:SettingsWindow.TempSettings.Sound.InputDevice, Mode=TwoWay}" ItemsSource="{x:Bind InputDeviceNames, Mode=OneWay}"/>
+        </local:SettingsBlockControl>
+        <local:SettingsBlockControl Title="Output device" Icon="Volume" HorizontalAlignment="Stretch">
+            <ComboBox Width="200" SelectedIndex="{x:Bind aw:SettingsWindow.TempSettings.Sound.OutputDevice, Mode=TwoWay}" ItemsSource="{x:Bind OutputDeviceNames, Mode=OneWay}"/>
+        </local:SettingsBlockControl>
+    </StackPanel>
+</Page>
