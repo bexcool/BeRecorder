@@ -41,10 +41,10 @@
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
             </NavigationView.MenuItems>
-            <ScrollView>
+            <ScrollViewer>
                 <Frame x:Name="MainFrame">
                 </Frame>
-            </ScrollView>
+            </ScrollViewer>
         </NavigationView>
         <Button Content="Apply" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,37,10,0" Style="{ThemeResource AccentButtonStyle}" Click="ApplyButton_Click"/>
     </Grid>

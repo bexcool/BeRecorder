@@ -32,11 +32,10 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.WindowsAPICodePack-Shell" Version="1.1.0" />
-    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.2.220727.1-experimental1" />
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.2.220902.1-preview1" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.25188-preview" />
     <PackageReference Include="NAudio" Version="2.1.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2-beta2" />
-    <PackageReference Include="ScreenRecorderLib" Version="5.1.3" />
     <PackageReference Include="WinUIEx" Version="1.8.0" />
     <Manifest Include="$(ApplicationManifest)" />
   </ItemGroup>
@@ -46,6 +45,11 @@
        package has not yet been restored -->
   <ItemGroup Condition="'$(DisableMsixProjectCapabilityAddedByProject)'!='true' and '$(EnablePreviewMsixTooling)'=='true'">
     <ProjectCapability Include="Msix" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="ScreenRecorderLib">
+      <HintPath>..\..\ScreenRecorderLib\ScreenRecorderLib\bin\x86\Release\ScreenRecorderLib.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Page Update="AppWindows\SettingsWindow.xaml">
