@@ -217,7 +217,7 @@ namespace BeRecorderWinUI3.AppWindows
 
             toast.Activated += async (sender, e) =>
             {
-                //Process.Start("explorer.exe", @"c:");
+                Process.Start("explorer.exe", @"c:");
 
                 FolderLauncherOptions folderLauncherOptions = new FolderLauncherOptions();
                 folderLauncherOptions.ItemsToSelect.Add(await (await StorageFolder.GetFolderFromPathAsync(Path.GetDirectoryName(RecordedFileName))).GetFileAsync(Path.GetFileName(RecordedFileName)));

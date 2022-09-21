@@ -1,0 +1,19 @@
+﻿<Page
+    x:Class="BeRecorderWinUI3.Pages.FirstSetup.SetupIntroPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BeRecorderWinUI3.Pages.FirstSetup"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Height="400">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="8">
+            <TextBlock Text="Welcome to BeRecorder." Style="{ThemeResource TitleLargeTextBlockStyle}"/>
+            <TextBlock TextWrapping="Wrap">
+            You'll set your preferences and learn how to use BeRecorder.<LineBreak/>You can skip this setup if you want.
+            </TextBlock>
+            <Button Content="Skip setup" Margin="0,15,0,0" Click="SkipSetupButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>

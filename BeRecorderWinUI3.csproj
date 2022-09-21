@@ -15,6 +15,8 @@
   <ItemGroup>
     <None Remove="AppWindows\SettingsWindow.xaml" />
     <None Remove="Pages\ContentDialogs\ApplySettingsContentDialogPage.xaml" />
+    <None Remove="Pages\FirstSetup\SetupIntroPage.xaml" />
+    <None Remove="Pages\FirstSetup\SetupOutroPage.xaml" />
     <None Remove="Pages\Settings\OutputPage.xaml" />
     <None Remove="Pages\Settings\SoundPage.xaml" />
     <None Remove="Pages\VideoPage.xaml" />
@@ -47,9 +49,17 @@
     <ProjectCapability Include="Msix" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="FirstSetupToolsClassLibrary">
+      <HintPath>..\..\FirstSetupToolsClassLibrary\FirstSetupToolsClassLibrary\bin\Release\net6.0-windows10.0.19041.0\FirstSetupToolsClassLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="ScreenRecorderLib">
       <HintPath>..\..\ScreenRecorderLib\ScreenRecorderLib\bin\x86\Release\ScreenRecorderLib.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\FirstSetup\SetupOutroPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="AppWindows\SettingsWindow.xaml">
@@ -76,6 +86,11 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="Pages\ContentDialogs\ApplySettingsContentDialogPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\FirstSetup\SetupIntroPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>

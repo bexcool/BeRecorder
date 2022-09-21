@@ -1,6 +1,9 @@
 ﻿using BeRecorderWinUI3.AppWindows;
+using BeRecorderWinUI3.Helpers;
 using BeRecorderWinUI3.Managers;
+using BeRecorderWinUI3.Pages.FirstSetup;
 using BeRecorderWinUI3.Views;
+using FirstSetupTools;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -37,8 +40,9 @@ namespace BeRecorderWinUI3
         /// executed, and as such is the logical equivalent of main() or WinMain().
         /// </summary>
 
-        // Settings
+        // Windows
         public static Settings Settings { get; set; } = new Settings();
+        public static SetupWindow SetupWindow { get; set; } = new SetupWindow(new List<Type> { typeof(SetupIntroPage), typeof(SetupOutroPage) });
 
         public App()
         {
@@ -59,6 +63,21 @@ namespace BeRecorderWinUI3
         /// <param name="args">Details about the launch request and process.</param>
         protected override async void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
+            if (!await FileHelper.CacheFileExists("settings.json"))
+            {
+                new MicaBackground().TrySetMicaBackdrop(SetupWindow);
+
+                SetupWindow.SetupCompleted += () =>
+                {
+                    m_window = new MainWindow();
+                    m_window.Activate();
+                };
+
+                SetupWindow.Activate();
+
+                return;
+            }
+
             await InitializeApplication();
 
             m_window = new MainWindow();
